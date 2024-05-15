@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:webtoon/features/mangas/presentation/homepage_screen/products_search_state_provider.dart';
+import 'package:webtoon/features/mangas/data/repository/homepage_repository.dart';
+import 'package:webtoon/features/mangas/presentation/homepage_screen/search_bar/manga_search_state_provider.dart';
 
 /// Search field used to filter products by name
 class MangaSearchTextField extends ConsumerStatefulWidget {
@@ -38,16 +39,15 @@ class _ProductsSearchTextFieldState
                 ? IconButton(
                     onPressed: () {
                       _controller.clear();
-                      ref
-                          .read(productsSearchQueryStateProvider.notifier)
-                          .state = '';
+                      ref.read(mangaSearchQueryStateProvider.notifier).state =
+                          '';
                     },
                     icon: const Icon(Icons.clear),
                   )
                 : null,
           ),
           onChanged: (text) =>
-              ref.read(productsSearchQueryStateProvider.notifier).state = text,
+              ref.read(mangaSearchQueryStateProvider.notifier).state = text,
         );
       },
     );

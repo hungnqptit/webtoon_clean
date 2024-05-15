@@ -21,6 +21,10 @@ dependencies:
   retrofit: ">=4.0.0 <5.0.0"
   logger: any #for logging purpose
   dio: ^5.4.3+1
+  shimmer: ^3.0.0
+  carousel_slider: ^4.2.1
+  cached_network_image: ^3.3.1
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
