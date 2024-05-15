@@ -14,11 +14,11 @@ unit-test:
 
 .PHONY: build-runner
 build-runner:
-	./bin/before_build_runner.bash && flutter packages pub run build_runner build --delete-conflicting-outputs && ./bin/after_build_runner.bash
+	dart run build_runner build --delete-conflicting-outputs
 
 .PHONY: watch-runner
 watch-runner:
-	flutter packages pub run build_runner watch --delete-conflicting-outputs
+	dart run build_runner watch --delete-conflicting-outputs
 
 .PHONY: build_runner_filter
 build-filter:
