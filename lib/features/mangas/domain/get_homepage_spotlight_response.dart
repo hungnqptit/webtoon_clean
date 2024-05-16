@@ -4,7 +4,6 @@ part 'get_homepage_spotlight_response.freezed.dart';
 part 'get_homepage_spotlight_response.g.dart';
 
 @Freezed(fromJson: false, toJson: false)
-@JsonSerializable(fieldRename: FieldRename.snake)
 class GetHomepageSpotlightResponse with _$GetHomepageSpotlightResponse {
   const factory GetHomepageSpotlightResponse({
     required SpotlightData? data,
@@ -15,7 +14,6 @@ class GetHomepageSpotlightResponse with _$GetHomepageSpotlightResponse {
 }
 
 @Freezed(fromJson: false, toJson: false)
-@JsonSerializable(fieldRename: FieldRename.snake)
 class SpotlightData with _$SpotlightData {
   const factory SpotlightData({
     required List<SpotlightMangas>? spotlightMangas,
@@ -27,7 +25,6 @@ class SpotlightData with _$SpotlightData {
 }
 
 @Freezed(fromJson: false, toJson: false)
-@JsonSerializable(fieldRename: FieldRename.snake)
 class NewChapterMangas with _$NewChapterMangas {
   const factory NewChapterMangas({
     required int? id,
@@ -44,7 +41,6 @@ class NewChapterMangas with _$NewChapterMangas {
 }
 
 @Freezed(fromJson: false, toJson: false)
-@JsonSerializable(fieldRename: FieldRename.snake)
 class SpotlightMangas with _$SpotlightMangas {
   const factory SpotlightMangas({
     required int? id,

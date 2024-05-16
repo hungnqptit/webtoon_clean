@@ -1,21 +1,16 @@
 import 'package:webtoon/features/mangas/domain/get_homepage_spotlight_response.dart';
+import 'package:webtoon/features/mangas/domain/get_top_manga_response.dart';
 
 class Manga {
   const Manga({
     this.spotlightMangas = const [],
     this.newChapterMangas = const [],
+    this.topMangaData = const [],
   });
 
   final List<SpotlightMangas> spotlightMangas;
   final List<NewChapterMangas> newChapterMangas;
-
-  set spotlightMangas(List<SpotlightMangas> value) {
-    spotlightMangas = value;
-  }
-
-  set newChapterMangas(List<NewChapterMangas> value) {
-    newChapterMangas = value;
-  }
+  final List<GetTopMangaData?> topMangaData;
 }
 
 extension MutableManga on Manga {
@@ -29,13 +24,31 @@ extension MutableManga on Manga {
         newChapterMangas: [...this.newChapterMangas, newChapterMangas]);
   }
 
+  Manga addTopMangaData(GetTopMangaData topMangaData) {
+    return copyWith(topMangaData: [...this.topMangaData, topMangaData]);
+  }
+
+  Manga setListSpotlightMangas(List<SpotlightMangas> spotlightMangas) {
+    return copyWith(spotlightMangas: spotlightMangas);
+  }
+
+  Manga setListNewChapterMangas(List<NewChapterMangas> newChapterMangas) {
+    return copyWith(newChapterMangas: newChapterMangas);
+  }
+
+  Manga setListTopMangaData(List<GetTopMangaData?> topMangaData) {
+    return copyWith(topMangaData: topMangaData);
+  }
+
   Manga copyWith({
     List<SpotlightMangas>? spotlightMangas,
     List<NewChapterMangas>? newChapterMangas,
+    List<GetTopMangaData?>? topMangaData,
   }) {
     return Manga(
       spotlightMangas: spotlightMangas ?? this.spotlightMangas,
       newChapterMangas: newChapterMangas ?? this.newChapterMangas,
+      topMangaData: topMangaData ?? this.topMangaData,
     );
   }
 }

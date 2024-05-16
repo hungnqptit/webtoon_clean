@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:webtoon/features/mangas/data/repository/homepage_repository.dart';
 import 'package:webtoon/features/mangas/presentation/homepage_screen/search_bar/manga_search_state_provider.dart';
 
 /// Search field used to filter products by name

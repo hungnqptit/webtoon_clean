@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:webtoon/features/mangas/presentation/homepage_screen/home_header_sliver.dart';
 import 'package:webtoon/features/mangas/presentation/homepage_screen/spotlight_recent_sliver/spotlight/spotlight_slivers.dart';
+import 'package:webtoon/features/mangas/presentation/homepage_screen/spotlight_recent_sliver/spotlight_recent_manga_controller.dart';
 
 class HomepageScreen extends ConsumerStatefulWidget {
   const HomepageScreen({super.key});
@@ -41,12 +42,19 @@ class _HomepageScreenState extends ConsumerState<HomepageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: const HomeAppBar(),
-      body: CustomScrollView(
-        controller: _scrollController,
-        slivers: const [
-          HomeHeaderSliver(),
-          HomeSpotlightSliver(),
-        ],
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: () =>
+              ref.refresh(spotlightRecentMangaControllerProvider.future),
+          child: CustomScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            controller: _scrollController,
+            slivers: const [
+              HomeHeaderSliver(),
+              HomeSpotlightSliver(),
+            ],
+          ),
+        ),
       ),
     );
   }
